@@ -1,0 +1,80 @@
+
+.el-select {
+    width: 100%;
+}
+
+.el-input__inner {
+    /*background-color: rgb(30,191,237);*/
+}
+
+.mainIndex .el-menu {
+    background-color: #011133;
+}
+
+.dataIndex .el-menu--horizontal > .el-menu-item {
+    color: #fff;
+}
+
+.dataIndex .el-menu--horizontal > .el-menu-item.is-active {
+    color: #46FFF7;
+}
+
+.dataIndex .el-table tr:nth-child(2n) {
+    background-color: #011343;
+    color: #fff;
+}
+
+.dataIndex .el-table tr:nth-child(2n+1) {
+    background-color:#011133;
+    color: #fff;
+}
+
+.dataIndex .el-table th {
+    background-color: #022C80;
+}
+
+.dataIndex *:not(.is-circle):not(.el-timeline-item__node) {
+    border: none;
+    border-radius: 0 !important;
+}
+
+.dataIndex .el-table--border::after,.dataIndex  .el-table--group::after,.dataIndex .el-table::before {
+    background-color: #030d17 !important;
+}
+
+.dataIndex .gutter {
+    display: inherit;
+}
+
+.el-table__header-wrapper > table {
+    background-color: #022c80;
+}
+
+.salesTab .el-tabs__item {
+    color: #fff;
+}
+
+.dataIndex .el-table__body tr:hover > td {
+    background-color: #1B46B7 !important;
+}
+
+.dataIndex .el-pagination__total, .dataIndex .el-pagination__jump {
+    color: #fff;
+}
+
+.el-pagination.is-background .btn-prev:disabled {
+    color: #fff;
+}
+
+.dataIndex .el-pagination.is-background .btn-next, .dataIndex .el-pagination.is-background .btn-prev, .dataIndex .el-pagination.is-background .el-pager li {
+    background-color: #175998;
+    color: #fff;
+}
+
+.el-table .sort-caret {
+    border: 5px solid transparent !important;
+}
+
+.dataIndex .el-table th > .cell {
+    padding: 0;
+}
