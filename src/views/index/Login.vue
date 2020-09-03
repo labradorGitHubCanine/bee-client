@@ -23,11 +23,7 @@
     export default {
         data() {
             return {
-                form: {
-                    username: 'djshouyi',
-                    password: '811105',
-                },
-                data1: {}
+                form: {}
             }
         },
         methods: {

@@ -1,7 +1,7 @@
 <template>
     <div>
         <el-card>
-            <el-form :inline="true">
+            <el-form inline>
                 <el-form-item>
                     <el-date-picker
                             v-model="form.year"
@@ -22,7 +22,7 @@
                 </el-form-item>
                 <el-form-item>
                     <el-button icon="el-icon-refresh" @click="list(true)">重 置</el-button>
-                    <el-button icon="el-icon-user" type="success">负责人汇总</el-button>
+                    <el-button icon="el-icon-user" type="success" @click="$router.push({name:'tasksubmit-listByChargor',params:{year:form.year}})">负责人汇总</el-button>
                     <el-button icon="el-icon-setting" type="info" @click="editTaskItem">其它填报项设置</el-button>
                 </el-form-item>
                 <el-form-item style="float: right">
@@ -88,7 +88,7 @@
                 <el-table-column label="操作">
                     <template slot-scope="scope" v-if="scope.row.id">
                         <el-button type="text" @click="listByProductTag(scope.row.id)">产品填报</el-button>
-                        <el-button type="text">审核通过</el-button>
+<!--                        <el-button type="text">审核通过</el-button>-->
                     </template>
                 </el-table-column>
             </el-table>
@@ -187,6 +187,8 @@
                 list(this.form).then(data => {
                     this.records = data['records'];
                     this.total = data['total'];
+                    this.form.pageNum = data['current'];
+                    this.form.pageSize = data['size'];
                     // 合计行
                     if (this.total > 0) {
                         this.records.push({

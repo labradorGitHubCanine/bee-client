@@ -57,6 +57,7 @@
                 list(this.form).then(data => {
                     this.records = data.records;
                     this.total = data.total;
+                    this.form.pageNum = data.current;
                     this.form.pageSize = data.size;
                 }).finally(() => this.loading = false);
             },
@@ -67,7 +68,7 @@
             sort(e) {
                 this.form.pageNum = 1;
                 this.form.orderBy = e.prop;
-                this.form.order = e.order && e.order.indexOf('asc') >= 0;
+                this.form.asc = e.order && e.order.indexOf('asc') >= 0;
                 this.list();
             },
             rowClick(row) {

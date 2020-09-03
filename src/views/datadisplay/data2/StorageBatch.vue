@@ -1,6 +1,6 @@
 <template>
     <div>
-        {{detail.name}}
+        <div style="color: white">{{detail.name}}</div>
         <el-table :data="records" border row-key="id" @sort-change="sort" v-loading="loading">
             <el-table-column prop="id" label="ID" sortable="custom"></el-table-column>
             <el-table-column prop="productModel.product.name" label="产品名称" sortable="custom"></el-table-column>
@@ -76,7 +76,7 @@
             sort(e) {
                 this.form.pageNum = 1;
                 this.form.orderBy = e.prop;
-                this.form.order = e.order && e.order.indexOf('asc') >= 0;
+                this.form.asc = e.order && e.order.indexOf('asc') >= 0;
                 this.list();
             }
         }

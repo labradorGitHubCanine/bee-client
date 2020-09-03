@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import tasksubmit from "@/configs/router/routes/tasksubmit";
+import datadisplay_data1 from "@/configs/router/routes/datadisplay-data1";
 
 Vue.use(Router);
 
@@ -18,7 +19,8 @@ const routes = [
             {path: 'payback', component: () => import('@/views/datadisplay/data2/Payback.vue')},
         ]
     },
-    ...tasksubmit
+    ...tasksubmit,
+    ...datadisplay_data1
 ];
 
 const router = new Router({

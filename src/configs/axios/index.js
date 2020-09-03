@@ -43,7 +43,6 @@ axios.interceptors.response.use(
                 result = e; // 有报错，下载失败，覆盖R，继续进行判断
             }
         }
-        console.log(result);
         let code = +result.code;
         let msg = result.msg;
         let data = result.data;
@@ -54,21 +53,21 @@ axios.interceptors.response.use(
         switch (code) {
             case 1: // 成功
                 if (['post', 'put', 'delete'].includes(res.config.method))
-                    Message.success(msg);
+                    Message.success({showClose: true, message: msg});
                 return Promise.resolve(data);
             case 0: // 失败
-                Message.error(msg);
+                Message.error({showClose: true, message: msg});
                 return Promise.reject();
             case 1000: // 重新登录
                 MessageBox.alert(msg).then(() => router.push({name: 'login'}));
                 return Promise.reject();
             default:
-                Message.error('不支持的状态码code=' + code);
+                Message.error({showClose: true, message: '不支持的状态码code=' + code});
                 return Promise.reject();
         }
     },
     error => {
-        Message.error(error.message);
+        Message.error({showClose: true, message: error.message});
         return Promise.reject(error);
     }
 );

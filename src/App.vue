@@ -4,11 +4,8 @@
     </div>
 </template>
 <script>
-    import axios from '@/configs/axios'
-
     export default {
         mounted() {
-            axios.get('download', {responseType: 'blob'});
         }
     }
 </script>
@@ -17,12 +14,13 @@
         font-family: "Microsoft YaHei", serif;
     }
 
-    *:not(.is-circle):not(.el-timeline-item__node) {
-        border-radius: 1px !important;
-    }
+    /**:not(.is-circle):not(.el-timeline-item__node) {*/
+    /*    border-radius: 1px !important;*/
+    /*}*/
 
     html, body {
         margin: 0;
         padding: 0;
+        height: 100vh;
     }
 </style>
