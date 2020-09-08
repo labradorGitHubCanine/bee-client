@@ -1,6 +1,15 @@
 <template>
     <main>
+        <div class="part_header">
+        <span class="headerImg">
+          <img src="../../../assets/images/wc_logo.png" alt />
+        </span>
+        </div>
+        <div class="part_title">
+            <img src="../../../assets/images/titleName.png" alt />
+        </div>
         <nav-tab></nav-tab>
+        <router-view />
     </main>
 </template>
 <script>
@@ -23,5 +32,21 @@
         background-repeat: no-repeat;
         background-position: center center;
         background-attachment: fixed;
+    }
+    .headerImg {
+        width: 1.5rem;
+        display: inline-block;
+    }
+    .headerImg > img {
+        max-width: 100%;
+        height: auto;
+    }
+    .part_title {
+        width: 10rem;
+        margin: 0 auto;
+        margin: 0.5rem auto;
+    }
+    .part_title > img {
+        max-width: 100%;
     }
 </style>
