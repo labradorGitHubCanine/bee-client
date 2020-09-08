@@ -1,6 +1,6 @@
 <template>
     <div class="btnGroup">
-        <span v-for="i in tabs" :key="i.code" :class="{active:codeCurrent===i.code}" @click="jump(i.code)">{{i.name}}</span>
+        <span v-for="i in tabs" :key="i.code" :class="{active:codeCurrent===i.code}" @click="jump(i)">{{i.name}}</span>
     </div>
 </template>
 <script>
@@ -8,18 +8,28 @@
         data() {
             return {
                 tabs: [
-                    {code: 1, name: '首页'},
-                    {code: 2, name: '3月内过期'},
-                    {code: 3, name: '3~6月过期'},
-                    {code: 4, name: '6~9月过期'},
-                    {code: 5, name: '库存不足'},
+                    {code: '', name: '首页',path:''},
+                    {code: 1, name: '3月内过期',path:'overdue'},
+                    {code: 2, name: '3~6月过期',path:'overdue'},
+                    {code: 3, name: '6~9月过期',path:'overdue'},
+                    {code: 0, name: '库存不足',path:'product'},
                 ],
-                codeCurrent: 1
+                codeCurrent: '',
+                storehouseId: this.$route.params.storehouseId,
             }
         },
         methods: {
-            jump(code) {
-                this.codeCurrent = code;
+            jump(jumpData) {
+                this.codeCurrent = jumpData.code;
+                if(jumpData.path == ''){
+                    this.$router.push({
+                        path:'/datadisplay/data1/'+this.storehouseId
+                    })
+                }else{
+                    this.$router.push({
+                        path:'/'+this.storehouseId+'/'+jumpData.path+'/'+jumpData.code
+                    })
+                }
             }
         }
     };

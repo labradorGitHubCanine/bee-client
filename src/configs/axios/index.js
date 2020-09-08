@@ -4,7 +4,7 @@ import {Message, MessageBox} from 'element-ui'
 import router from '@/configs/router'
 
 axios.defaults.baseURL = process.env.NODE_ENV === 'development' ?
-    "http://192.168.199.63:8090/" :
+    "http://47.96.175.198:8003/storage" :
     "http://47.96.175.198:8090/";
 
 axios.defaults.timeout = 10000;

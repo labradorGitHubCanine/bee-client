@@ -19,8 +19,15 @@ const routes = [
             {path: 'payback', component: () => import('@/views/datadisplay/data2/Payback.vue')},
         ]
     },
+    {
+        path:'/datadisplay/data1/:storehouseId',
+        redirect: {name: 'datadisplay-LevelProductTag'},
+        component:() => import('@/views/datadisplay/data1/Index.vue'),
+        children:[
+            ...datadisplay_data1
+        ]
+    },
     ...tasksubmit,
-    ...datadisplay_data1
 ];
 
 const router = new Router({
